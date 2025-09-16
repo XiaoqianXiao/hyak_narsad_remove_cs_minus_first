@@ -4,7 +4,7 @@
 # Author: Xiaoqian Xiao (xiao.xiaoqian.320@gmail.com)
 
 # Scripts directory
-SCRIPTS_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/groupLevel/whole_brain"
+SCRIPTS_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/remove_cs_minus_first/groupLevel/whole_brain"
 
 echo "=== Group-level Voxel-wise Analysis Launcher ==="
 echo "Scripts directory: $SCRIPTS_DIR"

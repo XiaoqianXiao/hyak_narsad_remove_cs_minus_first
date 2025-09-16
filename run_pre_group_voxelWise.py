@@ -765,7 +765,7 @@ Examples:
             workflow_dir = args.workflow_dir
         else:
             # Standard base: groupLevel/whole_brain
-            base_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/fMRI_analysis_remove_cs_minus_first/groupLevel/whole_brain')
+            base_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/remove_cs_minus_first/groupLevel/whole_brain')
             
             # Add data source subdirectory if not 'standard'
             if args.data_source and args.data_source != 'standard':

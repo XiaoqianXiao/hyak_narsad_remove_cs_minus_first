@@ -384,7 +384,7 @@ def get_standard_paths(task, contrast, base_dir, data_source):
     
     # Set up directories
     results_dir = os.path.join(base_dir, data_source_config['results_subdir'])
-    workflows_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows', data_source_config['workflows_subdir'])
+    workflows_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/remove_cs_minus_first', data_source_config['workflows_subdir'])
     
     # Use TemplateFlow to get group mask path
     group_mask = str(tpl_get('MNI152NLin2009cAsym', resolution=2, desc='brain', suffix='mask'))
@@ -425,7 +425,7 @@ def get_custom_paths(task, contrast, base_dir, custom_paths_dict):
     
     # Set default paths if not provided - whole_brain moved right after groupLevel
     default_result_dir = os.path.join(base_dir, 'whole_brain', f'task-{task}', f'cope{contrast}')
-    default_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows', 'groupLevel', 'whole_brain', f'task-{task}', f'cope{contrast}')
+    default_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/remove_cs_minus_first', 'groupLevel', 'whole_brain', f'task-{task}', f'cope{contrast}')
     
     paths = {
         'result_dir': custom_paths_dict.get('result_dir', default_result_dir),

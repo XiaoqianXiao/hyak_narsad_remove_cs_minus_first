@@ -97,7 +97,7 @@ DEFAULT_SLURM_PARAMS = {
     'time': '04:00:00',
     'mem': '32G',
     'cpus_per_task': 4,
-    'container': '/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove/narsad-fmri_1st_level_1.0.sif'
+    'container': '/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove_cs_minus_first/narsad-fmri_1st_level_1.0.sif'
 }
 
 def get_cope_list(derivatives_dir):
@@ -178,7 +178,7 @@ def create_slurm_script(phase, cope_num, output_dir, script_dir, slurm_params, d
     container_binds = [
         "-B /gscratch/fang:/data",
         "-B /gscratch/scrubbed/fanglab/xiaoqian:/scrubbed_dir",
-        "-B /gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove:/app"
+        "-B /gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove_cs_minus_first:/app"
     ]
     
     # Convert container path to host path for mkdir command
@@ -293,12 +293,12 @@ Examples:
     
     # Use container paths directly since this script runs inside the container
     logger.info("Using container paths directly")
-    output_dir = '/data/NARSAD/MRI/derivatives/fMRI_analysis_remove/groupLevel'
-    derivatives_dir = '/data/NARSAD/MRI/derivatives/fMRI_analysis_remove'
+    output_dir = '/data/NARSAD/MRI/derivatives/fMRI_analysis_remove_cs_minus_first/groupLevel'
+    derivatives_dir = '/data/NARSAD/MRI/derivatives/fMRI_analysis_remove_cs_minus_first'
     
     # Set script directory - use default workdir/pregroup structure
     scrubbed_dir = os.getenv('SCRUBBED_DIR', '/scrubbed_dir')
-    workdir = Path(scrubbed_dir) / 'NARSAD' / 'work_flows' / 'groupLevel'
+    workdir = Path(scrubbed_dir) / 'NARSAD' / 'work_flows' / 'remove_cs_minus_first' / 'groupLevel'
     script_dir = workdir / 'pregroup'
     
     # Ensure script directory is absolute and in a writable location

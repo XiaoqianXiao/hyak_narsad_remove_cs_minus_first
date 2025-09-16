@@ -480,7 +480,7 @@ def generate_slurm_scripts(layout, query):
         task = entities['task']
         
         # Create working directory
-        work_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, f'work_flows/remove_cs_minus_firstfirstLevel/{task}')
+        work_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, f'work_flows/remove_cs_minus_first/firstLevel/{task}')
         Path(work_dir).mkdir(parents=True, exist_ok=True)
         
         try:
