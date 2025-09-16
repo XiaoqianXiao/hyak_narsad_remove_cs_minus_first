@@ -22,7 +22,7 @@
 # =============================================================================
 
 # Base directory for first-level scripts
-SCRIPTS_BASE_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/fMRI_analysis_remove_cs_minus_first/firstLevel"
+SCRIPTS_BASE_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/remove_cs_minus_first/firstLevel"
 
 # Default settings
 PHASE=""
