@@ -111,7 +111,7 @@ get_available_copes() {
 # =============================================================================
 
 # Single container for all data sources
-CONTAINER_PATH="/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove/narsad-fmri_1st_level_1.0.sif"
+CONTAINER_PATH="/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove_cs_minus_first/narsad-fmri_1st_level_1.0.sif"
 
 # =============================================================================
 # DATA SOURCE CONFIGURATIONS
@@ -195,7 +195,7 @@ PARTITION="$DEFAULT_PARTITION"
 CPUS_PER_TASK="$DEFAULT_CPUS_PER_TASK"
 MEMORY="$DEFAULT_MEMORY"
 TIME="$DEFAULT_TIME"
-BASE_DIR="/gscratch/fang/NARSAD/MRI/derivatives/fMRI_analysis_remove"
+BASE_DIR="/gscratch/fang/NARSAD/MRI/derivatives/fMRI_analysis_remove_cs_minus_first"
 SCRIPT_DIR=""
 
 # Parse command line arguments
@@ -301,7 +301,7 @@ IFS=':' read -r SCRIPT_SUBDIR SCRIPT_NAME <<< "$DATA_SOURCE_CONFIG"
 
 # Set script directory
 if [[ -z "$SCRIPT_DIR" ]]; then
-    SCRIPT_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/groupLevel/${SCRIPT_SUBDIR}"
+    SCRIPT_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/fMRI_analysis_remove_cs_minus_first/groupLevel/${SCRIPT_SUBDIR}"
 fi
 
 # Create script directory and logs subdirectory
@@ -350,13 +350,13 @@ for task in "${TASKS[@]}"; do
 #SBATCH --error=${err_path}
 
 module load apptainer
-apptainer exec -B /gscratch/fang:/data -B /gscratch/scrubbed/fanglab/xiaoqian:/scrubbed_dir -B /gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove/group_level_workflows.py:/app/group_level_workflows.py -B /gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove/run_group_voxelWise.py:/app/run_group_voxelWise.py ${CONTAINER_PATH} \\
+apptainer exec -B /gscratch/fang:/data -B /gscratch/scrubbed/fanglab/xiaoqian:/scrubbed_dir -B /gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove_cs_minus_first:/app ${CONTAINER_PATH} \\
     python3 /app/${SCRIPT_NAME} \\
     --task ${task} \\
     --contrast ${contrast} \\
     --analysis-type ${analysis_type} \\
     --data-source ${DATA_SOURCE} \\
-    --base-dir /data/NARSAD/MRI/derivatives/fMRI_analysis_remove
+    --base-dir /data/NARSAD/MRI/derivatives/fMRI_analysis_remove_cs_minus_first
 
 EOF
             

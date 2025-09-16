@@ -99,7 +99,7 @@ PROJECT_NAME = 'NARSAD'
 DATA_DIR = os.path.join(ROOT_DIR, PROJECT_NAME, 'MRI')
 DERIVATIVES_DIR = os.path.join(DATA_DIR, 'derivatives')
 SCRUBBED_DIR = os.getenv('SCRUBBED_DIR', '/scrubbed_dir')
-CONTAINER_PATH = "/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove/narsad-fmri_1st_level_1.0.sif"
+CONTAINER_PATH = "/gscratch/scrubbed/fanglab/xiaoqian/repo/hyak_narsad_remove_cs_minus_first/narsad-fmri_1st_level_1.0.sif"
 
 # Define standard reference image (MNI152 template from FSL)
 GROUP_MASK = str(tpl_get('MNI152NLin2009cAsym', resolution=2, desc='brain', suffix='mask'))
@@ -345,7 +345,7 @@ def load_first_level_data():
         tuple: (BIDSLayout, list of subject IDs)
     """
     try:
-        firstlevel_dir = os.path.join(DERIVATIVES_DIR, 'fMRI_analysis_remove/firstLevel')
+        firstlevel_dir = os.path.join(DERIVATIVES_DIR, 'fMRI_analysis_remove_cs_minus_first/firstLevel')
         glayout = BIDSLayout(firstlevel_dir, validate=False, config=['bids', 'derivatives'])
         sub_list = sorted(glayout.get_subjects())
         
@@ -738,7 +738,7 @@ Examples:
             logger.info(f"Using custom output directory as base: {base_results_dir}")
         else:
             # Standard base: groupLevel/whole_brain
-            base_results_dir = os.path.join(DERIVATIVES_DIR, 'fMRI_analysis/groupLevel/whole_brain')
+            base_results_dir = os.path.join(DERIVATIVES_DIR, 'fMRI_analysis_remove_cs_minus_first/groupLevel/whole_brain')
             logger.info(f"Using default base directory: {base_results_dir}")
         
         # Always add data source components to the base directory
@@ -765,7 +765,7 @@ Examples:
             workflow_dir = args.workflow_dir
         else:
             # Standard base: groupLevel/whole_brain
-            base_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/groupLevel/whole_brain')
+            base_workflow_dir = os.path.join(SCRUBBED_DIR, PROJECT_NAME, 'work_flows/fMRI_analysis_remove_cs_minus_first/groupLevel/whole_brain')
             
             # Add data source subdirectory if not 'standard'
             if args.data_source and args.data_source != 'standard':
