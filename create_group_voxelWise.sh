@@ -301,7 +301,7 @@ IFS=':' read -r SCRIPT_SUBDIR SCRIPT_NAME <<< "$DATA_SOURCE_CONFIG"
 
 # Set script directory
 if [[ -z "$SCRIPT_DIR" ]]; then
-    SCRIPT_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/fMRI_analysis_remove_cs_minus_first/groupLevel/${SCRIPT_SUBDIR}"
+    SCRIPT_DIR="/gscratch/scrubbed/fanglab/xiaoqian/NARSAD/work_flows/remove_cs_minus_first/groupLevel/${SCRIPT_SUBDIR}"
 fi
 
 # Create script directory and logs subdirectory
